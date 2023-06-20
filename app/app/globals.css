@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer root {
+  body {
+    @apply bg-[#E1DBD6];
+  }
+}
