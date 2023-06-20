@@ -7,11 +7,11 @@ const getBooks = async () => {
 };
 
 const Books = async () => {
-  const books = await getBooks();
+  // const books = await getBooks();
   return (
     <div className="text-4xl text-center">
       Books:
-      <div>{books.author.name}</div>
+      {/* <div>{books.author.name}</div> */}
     </div>
   );
 };
