@@ -2,7 +2,10 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="flex p-10 px-24 justify-between pt-[300px] pb-[240px] items-center">
+    <div
+      id="home"
+      className="flex p-10 px-24 justify-between pt-[300px] pb-[240px] items-center"
+    >
       <div className="w-[540px] space-y-8">
         <h1 className="text-7xl font-black leading-[5.25rem]">
           Don't judge a book by its

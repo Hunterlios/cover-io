@@ -1,6 +1,11 @@
+import { BiSearchAlt2 } from "react-icons/bi";
+
 const Search = () => {
   return (
-    <div className="flex flex-col w-full px-10 py-[320px] items-center space-y-10">
+    <div
+      id="books"
+      className="flex flex-col w-full px-10 py-[320px] items-center space-y-10"
+    >
       <div className="space-y-6">
         <h1 className="text-4xl font-black text-center">
           Find your next page-turner with our
@@ -19,7 +24,9 @@ const Search = () => {
           className="w-full h-full outline-none bg-[#11BCF2] p-4 font-medium text-center placeholder:text-black/30"
           placeholder="Search"
         />
-        <button className="px-8 border-l-2 border-black">O</button>
+        <button className="px-8 border-l-2 border-black">
+          <BiSearchAlt2 className="w-6 h-6" />
+        </button>
       </div>
     </div>
   );
