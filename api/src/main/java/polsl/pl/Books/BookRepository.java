@@ -19,7 +19,7 @@ public class BookRepository {
     GenreRepository genreRepository;
 
     public List<Book> getAll(){
-        List<Book> books= jdbcTemplate.query("SELECT id,title,pages,isbn,time, language,description,cover FROM books",
+        List<Book> books= jdbcTemplate.query("SELECT id,title,pages,isbn,time, language,description,cover,year FROM books",
                 BeanPropertyRowMapper.newInstance(Book.class));
         for (Book book : books) {
             int author_id=jdbcTemplate.queryForObject("SELECT author_id FROM books WHERE id=?",new Object[]{book.getId()}, Integer.class);
@@ -34,7 +34,7 @@ public class BookRepository {
     }
     public Book getBookById(int id){
         try{
-            Book book= jdbcTemplate.queryForObject("SELECT id,title,pages,isbn,time,language,description,cover FROM books WHERE" +
+            Book book= jdbcTemplate.queryForObject("SELECT id,title,pages,isbn,time,language,description,cover,year FROM books WHERE" +
                     " id=?", BeanPropertyRowMapper.newInstance(Book.class),id);
             int author_id=jdbcTemplate.queryForObject("SELECT author_id FROM books WHERE id=?",new Object[]{id}, Integer.class);
             Author author= authorRepository.getAuthorById(author_id);
@@ -64,8 +64,8 @@ public class BookRepository {
             genreRepository.save(book.getGenre());
             genreId = genreRepository.getGenreIdByName(book.getGenre().getName(),book.getGenre().getAge());
         }
-        jdbcTemplate.update("INSERT INTO books(title,pages,isbn,time,language,description,cover,author_id,genre_id) VALUES(?,?,?,?,?,?,?,?,?)",
-                book.getTitle(),book.getPages(),book.getIsbn(),book.getTime(),book.getLanguage(),book.getDescription(),book.getCover(),authorId,genreId);
+        jdbcTemplate.update("INSERT INTO books(title,pages,isbn,time,language,description,cover,year,author_id,genre_id) VALUES(?,?,?,?,?,?,?,?,?,?)",
+                book.getTitle(),book.getPages(),book.getIsbn(),book.getTime(),book.getLanguage(),book.getDescription(),book.getCover(),book.getYear(),authorId,genreId);
 
         return 1;
 
@@ -83,8 +83,8 @@ public class BookRepository {
         int authorId=authorRepository.getAuthorIdByName(book.getAuthor().getName(), book.getAuthor().getSurname(),book.getAuthor().getCountry());
         int genreId=genreRepository.getGenreIdByName(book.getGenre().getName(), book.getGenre().getAge());
 
-        jdbcTemplate.update("UPDATE books SET title=?, pages=?,isbn=?,time=?,language=?,description=?,cover=?,author_id=?,genre_id=? WHERE id=?",
-                book.getTitle(),book.getPages(),book.getIsbn(),book.getTime(),book.getLanguage(),book.getDescription(),book.getCover(),authorId,genreId,book.getId());
+        jdbcTemplate.update("UPDATE books SET title=?, pages=?,isbn=?,time=?,language=?,description=?,cover=?,year=?,author_id=?,genre_id=? WHERE id=?",
+                book.getTitle(),book.getPages(),book.getIsbn(),book.getTime(),book.getLanguage(),book.getDescription(),book.getCover(),book.getYear(),authorId,genreId,book.getId());
         authorRepository.deleteNotUsed(oldAuthorId);
         genreRepository.deleteNotUsed(oldGenreId);
         return 1;

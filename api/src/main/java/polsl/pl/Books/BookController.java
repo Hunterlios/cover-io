@@ -30,7 +30,7 @@ public class BookController {
         Author author=new Author(999,"Marek","Towarek","Nibylandia");
         Genre genre = new Genre(666,"Boomer",99);
         return new Book(69,"Wydział MS",2137,"XD-xd",44,"Kurdyjski",
-                "nie wiem, nie czytałam","C:users/Natalia/Cyrk/Zdjecie.jpg",author,genre);
+                "nie wiem, nie czytałam","C:users/Natalia/Cyrk/Zdjecie.jpg",1999,author,genre);
     }
 
 
@@ -50,6 +50,7 @@ public class BookController {
             book.setLanguage(updatedBook.getLanguage());
             book.setDescription(updatedBook.getDescription());
             book.setCover(updatedBook.getCover());
+            book.setYear(updatedBook.getYear());
             book.setAuthor(updatedBook.getAuthor());
             book.setGenre(updatedBook.getGenre());
             bookRepository.update(book);

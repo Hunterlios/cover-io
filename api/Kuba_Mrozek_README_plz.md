@@ -18,6 +18,7 @@ http://localhost:8080/21
     "language": "polski",
     "description": "Ciemno wszędzie, głucho wszędzie, nie wiem nie czytałam",
     "cover": "Dziady.jpg",
+    "year":1832,
     "author": {
         "id": 1,
         "name": "Adam",
@@ -44,6 +45,7 @@ http://localhost:8080/
     "language": "polski",
     "description": "Ciemno wszędzie, głucho wszędzie, nie wiem nie czytałam",
     "cover": "Dziady.jpg",
+    "year":1832,
     "author": {
         "name": "Adam",
         "surname": "Mickiewicz",
@@ -65,6 +67,7 @@ http://localhost:8080/20
     "language": "polski",
     "description": "Ciemno wszędzie, głucho wszędzie, nie wiem nie czytałam",
     "cover": "Dziady.jpg",
+    "year":1832,
     "author": {
         "name": "Adam",
         "surname": "Mickiewicz",
