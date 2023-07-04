@@ -2,15 +2,15 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="flex p-10 px-24 w-full items-center fixed z-10 bg-[#E1DBD6] border-b-[3px] border-black">
+    <div className="flex py-16 px-20 md:p-10 md:px-24 w-full items-center fixed z-10 bg-[#E1DBD6] border-b-[3px] border-black">
       <div>
-        <h1 className="font-black text-3xl">
+        <h1 className="font-black md:text-3xl text-4xl">
           COVER.
           <span className="text-[#E71827]">IO</span>
         </h1>
       </div>
       <nav className="flex w-full justify-end items-center font-bold">
-        <ul className="flex w-72 justify-evenly mx-5">
+        <ul className="md:flex w-72 justify-evenly mx-5 sm: hidden">
           <li>
             <Link href="#home" scroll={false}>
               HOME
@@ -27,9 +27,11 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <button className="bg-[#F2BF11] py-1 px-4 border-2 border-black drop-shadow-button_shadow">
-          SIGN UP
-        </button>
+        <Link href={`/signUp/`}>
+          <button className="w-[140px] h-[40px] text-xl md:text-base  md:w-full bg-[#F2BF11] py-1 px-4 border-2 border-black drop-shadow-button_shadow sm: visible">
+            SIGN UP
+          </button>
+        </Link>
       </nav>
     </div>
   );

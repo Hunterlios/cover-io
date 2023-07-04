@@ -1,12 +1,11 @@
-import { Hero, Navbar, About, Search, Books } from "./components";
+import { Hero, Navbar, About, Books } from "./components";
 
 export default function Home() {
   return (
-    <div className="w-full h-full">
+    <div className="w-screen h-full">
       <Navbar />
       <Hero />
       <About />
-      <Search />
       <Books />
     </div>
   );

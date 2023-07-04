@@ -20,6 +20,7 @@
 @layer base {
   body {
     @apply bg-[#E1DBD6];
+    @apply w-full;
   }
 
   html {
